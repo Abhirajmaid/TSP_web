@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bike_listings",
+  "info": {
+    "singularName": "bike-listing",
+    "pluralName": "bike-listings",
+    "displayName": "BikeListing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "manufacturing_year": {
+      "type": "integer"
+    },
+    "km_ridden": {
+      "type": "biginteger"
+    },
+    "city": {
+      "type": "string"
+    },
+    "expected_price": {
+      "type": "biginteger"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "registration": {
+      "type": "string"
+    },
+    "colour": {
+      "type": "string"
+    }
+  }
+}
