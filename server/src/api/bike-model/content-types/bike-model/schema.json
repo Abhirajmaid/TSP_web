@@ -28,6 +28,12 @@
       "relation": "manyToMany",
       "target": "api::bike-listing.bike-listing",
       "inversedBy": "bike_models"
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variant.variant",
+      "mappedBy": "bike_model"
     }
   }
 }

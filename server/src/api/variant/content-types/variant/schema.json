@@ -60,9 +60,6 @@
     "valves_per_cylinder": {
       "type": "integer"
     },
-    "compression_ration": {
-      "type": "decimal"
-    },
     "spark_plugs": {
       "type": "string"
     },
@@ -87,7 +84,7 @@
     "front_suspension": {
       "type": "string"
     },
-    "back_suspension": {
+    "rear_suspension": {
       "type": "string"
     },
     "braking_sys": {
@@ -275,6 +272,21 @@
     },
     "additional_features": {
       "type": "string"
+    },
+    "compression_ratio": {
+      "type": "string"
+    },
+    "bike_model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bike-model.bike-model",
+      "inversedBy": "variants"
+    },
+    "brand_or_company_name": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-or-company-name.brand-or-company-name",
+      "inversedBy": "variants"
     }
   }
 }

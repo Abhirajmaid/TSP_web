@@ -25,6 +25,12 @@
       "relation": "manyToMany",
       "target": "api::bike-listing.bike-listing",
       "mappedBy": "brand_or_company_names"
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variant.variant",
+      "mappedBy": "brand_or_company_name"
     }
   }
 }
