@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bike_models",
+  "info": {
+    "singularName": "bike-model",
+    "pluralName": "bike-models",
+    "displayName": "Bike Model"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "model_name": {
+      "type": "string"
+    },
+    "no_of_variants": {
+      "type": "integer"
+    },
+    "brand_or_company_name": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-or-company-name.brand-or-company-name",
+      "inversedBy": "bike_models"
+    },
+    "bike_listings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::bike-listing.bike-listing",
+      "inversedBy": "bike_models"
+    }
+  }
+}

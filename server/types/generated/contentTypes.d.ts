@@ -683,6 +683,7 @@ export interface ApiBikeListingBikeListing extends Schema.CollectionType {
     singularName: 'bike-listing';
     pluralName: 'bike-listings';
     displayName: 'BikeListing';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -695,6 +696,16 @@ export interface ApiBikeListingBikeListing extends Schema.CollectionType {
     owner_name: Attribute.String;
     registration: Attribute.String;
     colour: Attribute.String;
+    bike_models: Attribute.Relation<
+      'api::bike-listing.bike-listing',
+      'manyToMany',
+      'api::bike-model.bike-model'
+    >;
+    brand_or_company_names: Attribute.Relation<
+      'api::bike-listing.bike-listing',
+      'manyToMany',
+      'api::brand-or-company-name.brand-or-company-name'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -706,6 +717,88 @@ export interface ApiBikeListingBikeListing extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::bike-listing.bike-listing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBikeModelBikeModel extends Schema.CollectionType {
+  collectionName: 'bike_models';
+  info: {
+    singularName: 'bike-model';
+    pluralName: 'bike-models';
+    displayName: 'Bike Model';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    model_name: Attribute.String;
+    no_of_variants: Attribute.Integer;
+    brand_or_company_name: Attribute.Relation<
+      'api::bike-model.bike-model',
+      'manyToOne',
+      'api::brand-or-company-name.brand-or-company-name'
+    >;
+    bike_listings: Attribute.Relation<
+      'api::bike-model.bike-model',
+      'manyToMany',
+      'api::bike-listing.bike-listing'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bike-model.bike-model',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bike-model.bike-model',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBrandOrCompanyNameBrandOrCompanyName
+  extends Schema.CollectionType {
+  collectionName: 'brand_or_company_names';
+  info: {
+    singularName: 'brand-or-company-name';
+    pluralName: 'brand-or-company-names';
+    displayName: 'Brand or Company name';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    bike_models: Attribute.Relation<
+      'api::brand-or-company-name.brand-or-company-name',
+      'oneToMany',
+      'api::bike-model.bike-model'
+    >;
+    bike_listings: Attribute.Relation<
+      'api::brand-or-company-name.brand-or-company-name',
+      'manyToMany',
+      'api::bike-listing.bike-listing'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::brand-or-company-name.brand-or-company-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::brand-or-company-name.brand-or-company-name',
       'oneToOne',
       'admin::user'
     > &
@@ -759,12 +852,13 @@ export interface ApiProductCatProductCat extends Schema.CollectionType {
     singularName: 'product-cat';
     pluralName: 'product-cats';
     displayName: 'ProductCat';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    gear: Attribute.String;
+    name: Attribute.String;
     products: Attribute.Relation<
       'api::product-cat.product-cat',
       'manyToMany',
@@ -825,6 +919,124 @@ export interface ApiSellerSeller extends Schema.CollectionType {
   };
 }
 
+export interface ApiVariantVariant extends Schema.CollectionType {
+  collectionName: 'variants';
+  info: {
+    singularName: 'variant';
+    pluralName: 'variants';
+    displayName: 'Variant';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    price: Attribute.BigInteger;
+    displacement: Attribute.BigInteger;
+    mileage: Attribute.Decimal;
+    top_speed: Attribute.Integer;
+    riding_modes: Attribute.String;
+    riding_range: Attribute.Integer;
+    max_power: Attribute.String;
+    max_torque: Attribute.String;
+    transmission: Attribute.String;
+    transmission_type: Attribute.String;
+    gear_shifting: Attribute.String;
+    ignition: Attribute.String;
+    cylinders: Attribute.Integer;
+    bore: Attribute.Integer;
+    valves_per_cylinder: Attribute.Integer;
+    compression_ration: Attribute.Decimal;
+    spark_plugs: Attribute.String;
+    cooling_system: Attribute.String;
+    clutch: Attribute.String;
+    fuel_delivery_system: Attribute.String;
+    fuel_tank_capacity: Attribute.Integer;
+    reserve_fuel_capacity: Attribute.Integer;
+    fuel_type: Attribute.String;
+    front_suspension: Attribute.String;
+    back_suspension: Attribute.String;
+    braking_sys: Attribute.String;
+    front_brake_type: Attribute.String;
+    front_brake_size: Attribute.Decimal;
+    rear_brake_type: Attribute.String;
+    rear_brake_size: Attribute.Decimal;
+    calliper_type: Attribute.String;
+    wheel_type: Attribute.String;
+    front_wheel_size: Attribute.String;
+    rear_wheel_size: Attribute.String;
+    front_tyre_size: Attribute.String;
+    rear_tyre_size: Attribute.String;
+    tyre_type: Attribute.String;
+    radial_type: Attribute.String;
+    front_tyre_pressure_rider: Attribute.String;
+    rear_tyre_pressure_rider: Attribute.String;
+    front_tyre_pressure_rider_and_pillion: Attribute.String;
+    rear_tyre_pressure_rider_and_pillion: Attribute.String;
+    kerb_weight: Attribute.Integer;
+    seat_height: Attribute.Integer;
+    ground_clearance: Attribute.Integer;
+    overall_length: Attribute.Decimal;
+    overall_height: Attribute.Decimal;
+    wheelbase: Attribute.Integer;
+    chassis_type: Attribute.String;
+    standard_warranty_years: Attribute.BigInteger;
+    standard_warranty_kms: Attribute.BigInteger;
+    instrumental_console: Attribute.String;
+    odometer: Attribute.String;
+    speedometer: Attribute.String;
+    fuel_gauge: Attribute.String;
+    distance_to_empty_indicator: Attribute.String;
+    tachometer: Attribute.String;
+    stand_alarm: Attribute.String;
+    no_of_tripmeters: Attribute.Integer;
+    tripmeter_type: Attribute.String;
+    gear_indicator: Attribute.String;
+    low_fuel_indicator: Attribute.String;
+    low_oil_indicator: Attribute.String;
+    low_battery_indicator: Attribute.String;
+    clock: Attribute.String;
+    service_reminder_indicator: Attribute.String;
+    battery: Attribute.String;
+    front_storage_box: Attribute.String;
+    under_seat_storage: Attribute.String;
+    mobile_app_connectivity: Attribute.String;
+    drls: Attribute.String;
+    aho: Attribute.String;
+    shift_light: Attribute.String;
+    headlight_type: Attribute.String;
+    brake_light: Attribute.String;
+    turn_signal: Attribute.String;
+    pass_light: Attribute.String;
+    gps_and_navigation: Attribute.String;
+    usb_charging_port: Attribute.String;
+    start_type: Attribute.String;
+    kill_switch: Attribute.String;
+    stepped_seat: Attribute.String;
+    pillion_backrest: Attribute.String;
+    pillion_grabrail: Attribute.String;
+    pillion_seat: Attribute.String;
+    pillion_footrest: Attribute.String;
+    additional_features: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::variant.variant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::variant.variant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -842,9 +1054,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::bike-listing.bike-listing': ApiBikeListingBikeListing;
+      'api::bike-model.bike-model': ApiBikeModelBikeModel;
+      'api::brand-or-company-name.brand-or-company-name': ApiBrandOrCompanyNameBrandOrCompanyName;
       'api::product.product': ApiProductProduct;
       'api::product-cat.product-cat': ApiProductCatProductCat;
       'api::seller.seller': ApiSellerSeller;
+      'api::variant.variant': ApiVariantVariant;
     }
   }
 }

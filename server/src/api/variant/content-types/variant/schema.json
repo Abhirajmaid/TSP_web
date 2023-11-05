@@ -1,0 +1,280 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variants",
+  "info": {
+    "singularName": "variant",
+    "pluralName": "variants",
+    "displayName": "Variant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "displacement": {
+      "type": "biginteger"
+    },
+    "mileage": {
+      "type": "decimal"
+    },
+    "top_speed": {
+      "type": "integer"
+    },
+    "riding_modes": {
+      "type": "string"
+    },
+    "riding_range": {
+      "type": "integer"
+    },
+    "max_power": {
+      "type": "string"
+    },
+    "max_torque": {
+      "type": "string"
+    },
+    "transmission": {
+      "type": "string"
+    },
+    "transmission_type": {
+      "type": "string"
+    },
+    "gear_shifting": {
+      "type": "string"
+    },
+    "ignition": {
+      "type": "string"
+    },
+    "cylinders": {
+      "type": "integer"
+    },
+    "bore": {
+      "type": "integer"
+    },
+    "valves_per_cylinder": {
+      "type": "integer"
+    },
+    "compression_ration": {
+      "type": "decimal"
+    },
+    "spark_plugs": {
+      "type": "string"
+    },
+    "cooling_system": {
+      "type": "string"
+    },
+    "clutch": {
+      "type": "string"
+    },
+    "fuel_delivery_system": {
+      "type": "string"
+    },
+    "fuel_tank_capacity": {
+      "type": "integer"
+    },
+    "reserve_fuel_capacity": {
+      "type": "integer"
+    },
+    "fuel_type": {
+      "type": "string"
+    },
+    "front_suspension": {
+      "type": "string"
+    },
+    "back_suspension": {
+      "type": "string"
+    },
+    "braking_sys": {
+      "type": "string"
+    },
+    "front_brake_type": {
+      "type": "string"
+    },
+    "front_brake_size": {
+      "type": "decimal"
+    },
+    "rear_brake_type": {
+      "type": "string"
+    },
+    "rear_brake_size": {
+      "type": "decimal"
+    },
+    "calliper_type": {
+      "type": "string"
+    },
+    "wheel_type": {
+      "type": "string"
+    },
+    "front_wheel_size": {
+      "type": "string"
+    },
+    "rear_wheel_size": {
+      "type": "string"
+    },
+    "front_tyre_size": {
+      "type": "string"
+    },
+    "rear_tyre_size": {
+      "type": "string"
+    },
+    "tyre_type": {
+      "type": "string"
+    },
+    "radial_type": {
+      "type": "string"
+    },
+    "front_tyre_pressure_rider": {
+      "type": "string"
+    },
+    "rear_tyre_pressure_rider": {
+      "type": "string"
+    },
+    "front_tyre_pressure_rider_and_pillion": {
+      "type": "string"
+    },
+    "rear_tyre_pressure_rider_and_pillion": {
+      "type": "string"
+    },
+    "kerb_weight": {
+      "type": "integer"
+    },
+    "seat_height": {
+      "type": "integer"
+    },
+    "ground_clearance": {
+      "type": "integer"
+    },
+    "overall_length": {
+      "type": "decimal"
+    },
+    "overall_height": {
+      "type": "decimal"
+    },
+    "wheelbase": {
+      "type": "integer"
+    },
+    "chassis_type": {
+      "type": "string"
+    },
+    "standard_warranty_years": {
+      "type": "biginteger"
+    },
+    "standard_warranty_kms": {
+      "type": "biginteger"
+    },
+    "instrumental_console": {
+      "type": "string"
+    },
+    "odometer": {
+      "type": "string"
+    },
+    "speedometer": {
+      "type": "string"
+    },
+    "fuel_gauge": {
+      "type": "string"
+    },
+    "distance_to_empty_indicator": {
+      "type": "string"
+    },
+    "tachometer": {
+      "type": "string"
+    },
+    "stand_alarm": {
+      "type": "string"
+    },
+    "no_of_tripmeters": {
+      "type": "integer"
+    },
+    "tripmeter_type": {
+      "type": "string"
+    },
+    "gear_indicator": {
+      "type": "string"
+    },
+    "low_fuel_indicator": {
+      "type": "string"
+    },
+    "low_oil_indicator": {
+      "type": "string"
+    },
+    "low_battery_indicator": {
+      "type": "string"
+    },
+    "clock": {
+      "type": "string"
+    },
+    "service_reminder_indicator": {
+      "type": "string"
+    },
+    "battery": {
+      "type": "string"
+    },
+    "front_storage_box": {
+      "type": "string"
+    },
+    "under_seat_storage": {
+      "type": "string"
+    },
+    "mobile_app_connectivity": {
+      "type": "string"
+    },
+    "drls": {
+      "type": "string"
+    },
+    "aho": {
+      "type": "string"
+    },
+    "shift_light": {
+      "type": "string"
+    },
+    "headlight_type": {
+      "type": "string"
+    },
+    "brake_light": {
+      "type": "string"
+    },
+    "turn_signal": {
+      "type": "string"
+    },
+    "pass_light": {
+      "type": "string"
+    },
+    "gps_and_navigation": {
+      "type": "string"
+    },
+    "usb_charging_port": {
+      "type": "string"
+    },
+    "start_type": {
+      "type": "string"
+    },
+    "kill_switch": {
+      "type": "string"
+    },
+    "stepped_seat": {
+      "type": "string"
+    },
+    "pillion_backrest": {
+      "type": "string"
+    },
+    "pillion_grabrail": {
+      "type": "string"
+    },
+    "pillion_seat": {
+      "type": "string"
+    },
+    "pillion_footrest": {
+      "type": "string"
+    },
+    "additional_features": {
+      "type": "string"
+    }
+  }
+}

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "bike-listing",
     "pluralName": "bike-listings",
-    "displayName": "BikeListing"
+    "displayName": "BikeListing",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,6 +32,18 @@
     },
     "colour": {
       "type": "string"
+    },
+    "bike_models": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::bike-model.bike-model",
+      "mappedBy": "bike_listings"
+    },
+    "brand_or_company_names": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::brand-or-company-name.brand-or-company-name",
+      "inversedBy": "bike_listings"
     }
   }
 }
