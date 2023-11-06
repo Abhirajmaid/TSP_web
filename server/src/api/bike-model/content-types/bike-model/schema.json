@@ -4,7 +4,8 @@
   "info": {
     "singularName": "bike-model",
     "pluralName": "bike-models",
-    "displayName": "Bike Model"
+    "displayName": "Bike Model",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,6 +35,9 @@
       "relation": "oneToMany",
       "target": "api::variant.variant",
       "mappedBy": "bike_model"
+    },
+    "year": {
+      "type": "biginteger"
     }
   }
 }

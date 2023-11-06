@@ -730,6 +730,7 @@ export interface ApiBikeModelBikeModel extends Schema.CollectionType {
     singularName: 'bike-model';
     pluralName: 'bike-models';
     displayName: 'Bike Model';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -752,6 +753,7 @@ export interface ApiBikeModelBikeModel extends Schema.CollectionType {
       'oneToMany',
       'api::variant.variant'
     >;
+    year: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

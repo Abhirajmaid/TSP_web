@@ -290,6 +290,9 @@
     },
     "overall_width": {
       "type": "decimal"
+    },
+    "stroke": {
+      "type": "decimal"
     }
   }
 }
