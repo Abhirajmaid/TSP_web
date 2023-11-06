@@ -747,6 +747,11 @@ export interface ApiBikeModelBikeModel extends Schema.CollectionType {
       'manyToMany',
       'api::bike-listing.bike-listing'
     >;
+    variants: Attribute.Relation<
+      'api::bike-model.bike-model',
+      'oneToMany',
+      'api::variant.variant'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -787,6 +792,11 @@ export interface ApiBrandOrCompanyNameBrandOrCompanyName
       'api::brand-or-company-name.brand-or-company-name',
       'manyToMany',
       'api::bike-listing.bike-listing'
+    >;
+    variants: Attribute.Relation<
+      'api::brand-or-company-name.brand-or-company-name',
+      'oneToMany',
+      'api::variant.variant'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -933,11 +943,11 @@ export interface ApiVariantVariant extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     price: Attribute.BigInteger;
-    displacement: Attribute.BigInteger;
+    displacement: Attribute.Decimal;
     mileage: Attribute.Decimal;
-    top_speed: Attribute.Integer;
+    top_speed: Attribute.Decimal;
     riding_modes: Attribute.String;
-    riding_range: Attribute.Integer;
+    riding_range: Attribute.Decimal;
     max_power: Attribute.String;
     max_torque: Attribute.String;
     transmission: Attribute.String;
@@ -945,18 +955,17 @@ export interface ApiVariantVariant extends Schema.CollectionType {
     gear_shifting: Attribute.String;
     ignition: Attribute.String;
     cylinders: Attribute.Integer;
-    bore: Attribute.Integer;
+    bore: Attribute.Decimal;
     valves_per_cylinder: Attribute.Integer;
-    compression_ration: Attribute.Decimal;
     spark_plugs: Attribute.String;
     cooling_system: Attribute.String;
     clutch: Attribute.String;
     fuel_delivery_system: Attribute.String;
-    fuel_tank_capacity: Attribute.Integer;
-    reserve_fuel_capacity: Attribute.Integer;
+    fuel_tank_capacity: Attribute.Decimal;
+    reserve_fuel_capacity: Attribute.Decimal;
     fuel_type: Attribute.String;
     front_suspension: Attribute.String;
-    back_suspension: Attribute.String;
+    rear_suspension: Attribute.String;
     braking_sys: Attribute.String;
     front_brake_type: Attribute.String;
     front_brake_size: Attribute.Decimal;
@@ -974,7 +983,7 @@ export interface ApiVariantVariant extends Schema.CollectionType {
     rear_tyre_pressure_rider: Attribute.String;
     front_tyre_pressure_rider_and_pillion: Attribute.String;
     rear_tyre_pressure_rider_and_pillion: Attribute.String;
-    kerb_weight: Attribute.Integer;
+    kerb_weight: Attribute.Decimal;
     seat_height: Attribute.Integer;
     ground_clearance: Attribute.Integer;
     overall_length: Attribute.Decimal;
@@ -1019,6 +1028,18 @@ export interface ApiVariantVariant extends Schema.CollectionType {
     pillion_seat: Attribute.String;
     pillion_footrest: Attribute.String;
     additional_features: Attribute.String;
+    compression_ratio: Attribute.String;
+    bike_model: Attribute.Relation<
+      'api::variant.variant',
+      'manyToOne',
+      'api::bike-model.bike-model'
+    >;
+    brand_or_company_name: Attribute.Relation<
+      'api::variant.variant',
+      'manyToOne',
+      'api::brand-or-company-name.brand-or-company-name'
+    >;
+    overall_width: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

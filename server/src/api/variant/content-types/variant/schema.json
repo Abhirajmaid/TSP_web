@@ -19,19 +19,19 @@
       "type": "biginteger"
     },
     "displacement": {
-      "type": "biginteger"
+      "type": "decimal"
     },
     "mileage": {
       "type": "decimal"
     },
     "top_speed": {
-      "type": "integer"
+      "type": "decimal"
     },
     "riding_modes": {
       "type": "string"
     },
     "riding_range": {
-      "type": "integer"
+      "type": "decimal"
     },
     "max_power": {
       "type": "string"
@@ -55,7 +55,7 @@
       "type": "integer"
     },
     "bore": {
-      "type": "integer"
+      "type": "decimal"
     },
     "valves_per_cylinder": {
       "type": "integer"
@@ -73,10 +73,10 @@
       "type": "string"
     },
     "fuel_tank_capacity": {
-      "type": "integer"
+      "type": "decimal"
     },
     "reserve_fuel_capacity": {
-      "type": "integer"
+      "type": "decimal"
     },
     "fuel_type": {
       "type": "string"
@@ -139,7 +139,7 @@
       "type": "string"
     },
     "kerb_weight": {
-      "type": "integer"
+      "type": "decimal"
     },
     "seat_height": {
       "type": "integer"
@@ -287,6 +287,9 @@
       "relation": "manyToOne",
       "target": "api::brand-or-company-name.brand-or-company-name",
       "inversedBy": "variants"
+    },
+    "overall_width": {
+      "type": "decimal"
     }
   }
 }
