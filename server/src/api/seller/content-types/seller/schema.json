@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "email": {
       "type": "email"
     },
@@ -22,14 +19,15 @@
       "type": "biginteger"
     },
     "profile_picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "address": {
       "type": "richtext"
@@ -39,6 +37,12 @@
     },
     "store_name": {
       "type": "string"
+    },
+    "bike_listings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bike-listing.bike-listing",
+      "mappedBy": "seller"
     }
   }
 }

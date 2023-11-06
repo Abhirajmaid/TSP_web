@@ -44,6 +44,12 @@
       "relation": "manyToMany",
       "target": "api::brand-or-company-name.brand-or-company-name",
       "inversedBy": "bike_listings"
+    },
+    "seller": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::seller.seller",
+      "inversedBy": "bike_listings"
     }
   }
 }

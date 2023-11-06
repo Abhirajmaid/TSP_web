@@ -706,6 +706,11 @@ export interface ApiBikeListingBikeListing extends Schema.CollectionType {
       'manyToMany',
       'api::brand-or-company-name.brand-or-company-name'
     >;
+    seller: Attribute.Relation<
+      'api::bike-listing.bike-listing',
+      'manyToOne',
+      'api::seller.seller'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -906,13 +911,17 @@ export interface ApiSellerSeller extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
     email: Attribute.Email;
     mobile: Attribute.BigInteger;
     profile_picture: Attribute.Media;
     address: Attribute.RichText;
     city: Attribute.String;
     store_name: Attribute.String;
+    bike_listings: Attribute.Relation<
+      'api::seller.seller',
+      'oneToMany',
+      'api::bike-listing.bike-listing'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1042,6 +1051,7 @@ export interface ApiVariantVariant extends Schema.CollectionType {
       'api::brand-or-company-name.brand-or-company-name'
     >;
     overall_width: Attribute.Decimal;
+    stroke: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
